@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Localization"
+  short_description: "Localize videos with synced Chinese audio and subtitles"
+  default_prompt: "Use $video-localization-skill to convert this English video into a publish-ready Chinese version with synced narration and burned-in subtitles."
