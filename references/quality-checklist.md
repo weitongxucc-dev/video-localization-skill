@@ -1,33 +1,46 @@
-# Quality Checklist
+# 发布前质检清单
 
-Run this checklist before delivering a localized video.
+本清单用于交付本地化视频前的最终检查。不要只因为命令执行成功就宣布完成。
 
-## Media Structure
+## 媒体结构
 
-- Source and output have the intended aspect ratio.
-- Source and output have the intended resolution.
-- Output video codec is compatible with the user's playback target, usually H.264.
-- Output has exactly one intended audio track unless the user asked for multiple tracks.
-- Original English audio is not mapped into the final output.
+- 输出视频画幅符合预期，例如源视频是 `16:9`，输出也应为 `16:9`。
+- 输出分辨率符合预期，例如源视频是 `1280x720`，输出不应无故变成竖屏或裁切版。
+- 输出编码兼容常见播放器，通常建议 H.264 + AAC。
+- 输出视频只有一条预期音轨，除非用户明确要求多音轨。
+- 原英文音轨没有被映射进最终视频。
 
-## Timing
+## 音画同步
 
-- Output audio duration is effectively equal to output container duration.
-- Narration starts and stops at the correct visual moments.
-- Long source silences remain silent unless the user asks for continuous narration.
-- No global stretching of one full TTS file was used to fake synchronization.
+- 输出音频时长与视频容器时长基本一致。
+- 中文讲解在正确画面位置开始和结束。
+- 原视频中的长停顿仍保留静音，除非用户要求连续解说。
+- 没有用“整段 TTS 全局拉伸”的方式伪造同步。
+- 中后段抽查时，声音仍跟画面匹配。
 
-## Subtitles
+## 字幕
 
-- Subtitles are visible on early, middle, and late sample frames.
-- Font size is small enough for long lines but readable.
-- Text wraps by pixel width and remains inside the frame.
-- No ellipsis/truncation exists unless explicitly requested.
-- Subtitles do not cover important faces, UI, or product details.
+- 早、中、晚三处抽帧都能看到中文字幕。
+- 字幕字号足够小，能完整显示长句。
+- 字幕仍然清晰可读。
+- 字幕按像素宽度换行，没有跑出画面。
+- 没有出现非用户要求的省略号或截断。
+- 字幕没有遮挡人物面部、关键 UI、产品细节或演示重点。
 
-## Language
+## 语言质量
 
-- Proper names and tool names are preserved.
-- Chinese wording sounds watchable, not just literal.
-- Technical terms are translated consistently.
-- If automatic translation produced awkward names, flag that a human terminology pass is recommended.
+- 工具名、产品名、人名、仓库名没有被错误翻译。
+- 中文表达适合观看，不是机械直译。
+- 技术术语前后一致。
+- 如果自动翻译出现明显怪词，应提示用户做一次人工术语校对。
+
+## 交付说明
+
+交付时建议说明：
+
+- 输出文件路径
+- 画幅和分辨率
+- 音轨数量
+- 是否已压入字幕
+- 是否做过抽帧检查
+- 是否存在需要人工校对的翻译问题
